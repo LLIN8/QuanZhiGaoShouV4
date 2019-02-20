@@ -1,0 +1,38 @@
+#photo-Size{
+    width: 280px;
+    height: 157.42px;
+}
+
+#teamPhoto{
+    padding-bottom: 2%;
+    padding-right: 2%;
+}
+
+#frame-position{
+    position: relative;
+    left: 10%;
+    padding-top: 4%;
+}
+
+
+#topContainer{
+    height: 350px;
+    top: 13px;
+    position: relative;
+    background-color: rgb(155,116, 77);
+    background-image: url("/Glory.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0 0 auto;
+}
+
+h1{
+    text-align: center;
+    padding-top: 4%;
+}
+
+#insertInfo{
+    width: 30%; 
+    margin: 25px auto;
+}
+

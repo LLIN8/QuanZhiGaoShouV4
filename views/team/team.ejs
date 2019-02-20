@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+        <link rel="stylesheet" type ="text/css" href ="/stylesheet/team.css">
+
+<div class = "container">
+    <header id="topContainer" class = "jumbotron" >
+    </header>
+    
+    <div id="frame-position" class ="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% allTeams.forEach(function(allTeam){ %>
+        <div id="teamPhoto" class ="float-md-left">
+            <div class = "img-thumbnail">
+                <a href="/team/<%= allTeam._id %>"><img id="photo-Size" src ="<%= allTeam.teamImage %>" ></a>
+            </div>
+            <div id="teamColor" class = "caption">
+                <h4><%= allTeam.teamName %></h4>
+            </div>
+        </div>
+
+    <% }); %>
+</div>
+</div>
+<% include ../partials/footer %>
