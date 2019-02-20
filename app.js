@@ -51,7 +51,6 @@ app.get("/", function(req,res){
 
 //team Routes
 app.get("/team", function(req, res){
-    console.log(req.user);
     //Get all team from DB
     Allteam.find({},function(err,allTeams){
         if(err)
@@ -123,10 +122,16 @@ app.get("/logout", function(req,res){
     res.redirect("/");
 });
 
-
-//teamInformation Routes
-app.get("/teamMember", function(req,res){
-    res.render("teamMember");
+//SHOW ROUTE
+app.get("/team/:id", function(req, res) {
+  Allteam.findById(req.params.id).populate("teamInformation").exec(function(err, teaminfo){
+        if(err)
+        {
+            res.redirect("/team");
+        } else{
+            res.render("teamMember/teamMember", {teaminfo:teaminfo});
+        }
+    });
 });
 
 function isLoggedIn(req,res,next){

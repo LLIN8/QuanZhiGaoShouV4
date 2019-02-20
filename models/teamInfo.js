@@ -4,7 +4,7 @@ var teamInfoSchema = new mongoose.Schema({
     teamMember: String,
     memberImage: String,
     gender: String,
-    birthdayDay:String,
+    birthday:String,
     age:String,
     character:String,
     weapon:String,

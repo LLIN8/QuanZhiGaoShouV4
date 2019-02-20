@@ -33,10 +33,13 @@ var data = [{
 var data1 = [{
         teamMember: "叶修 (Ye Xiu)",
         memberImage: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550685038&di=030d0cb771f9da6d4f2e40b5cb0d220a&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201611%2F09%2F20161109215624_PsMZE.jpeg",
-        memberDescription: "荣耀网全职业精通。担任首届荣耀世界邀请赛中国国家队领队 " +
-            "生日：5月29日 星座：双子座 出生地：B市 身高：178cm " +
-            "血型：AB型 荣誉称号：荣耀教科书、战术大师、斗神、荣耀之神 " +
-            "角色ID：一叶之秋（原，战斗法师）、君莫笑（现，无转职，散人）角色武器：却邪（原，银武，战矛）、千机伞（现，银武）"
+        gender: "Male",
+        birthday: "May 29",
+        age: "27",
+        height: "178cm",
+        sign: "AB",
+        character: "君莫笑",
+        weapon: "千机伞"
     },
     {
         teamMember: "苏沐橙",

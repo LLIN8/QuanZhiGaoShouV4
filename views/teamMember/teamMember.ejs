@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+        <link rel="stylesheet" type ="text/css" href ="/stylesheet/teamMember.css">
+
+<% teaminfo.teamInformation.forEach(function(teamInformation){ %>
+    <div id="frame-container" class ="col-md-9">
+        <div id="photo-frame" class="img-thumbnail">
+            <div  class="caption-full">
+                <h3><%= teamInformation.teamMember %></h3>
+            </div>
+            <ui id="list-style">
+                <li>Gender:   <%= teamInformation.gender%></li>
+                <li>Birthday:   <%= teamInformation.birthday%></li>
+                <li>Age:   <%= teamInformation.age%></li>
+                <li>Height:   <%= teamInformation.height%></li>
+                <li>Bloody Type:   <%= teamInformation.sign%></li>
+                <li>Character:   <%= teamInformation.character%></li>
+                <li>Weapon:   <%= teamInformation.weapon%></li>
+            </ui>
+            <img id ="photo" class="img-responsive" src="<%= teamInformation.memberImage %>"> 
+        </div>
+        
+    </div>
+
+
+<% }); %>
+
+<% include ../partials/footer %>
