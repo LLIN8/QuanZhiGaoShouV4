@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+        <link rel="stylesheet" type ="text/css" href ="/stylesheet/teamMember.css">
+        
+<h1>Add A New Member</h1>
+<div id="insertInfo">
+    <form action="/team/<%=team._id%>/teamMember" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Team Name" name="memberName">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Team Image Link" name="memberImage">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Gender" name="gender">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Birthday" name="birthday">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Blood Type" name="bloodtype">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Height" name="height">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="APM" name="APM">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Character" name="character">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Weapon" name="weapon">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Description" name="descriptions">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+    
+    </form>
+</div>
+<% include ../partials/footer %>

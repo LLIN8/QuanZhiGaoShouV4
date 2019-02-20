@@ -5,10 +5,10 @@ var teamInfoSchema = new mongoose.Schema({
     memberImage: String,
     gender: String,
     birthday:String,
-    age:String,
+    bloodType:String,
     character:String,
     weapon:String,
-    sign:String,
+    APM:String,
     height:String,
     memberDescription: String
 });

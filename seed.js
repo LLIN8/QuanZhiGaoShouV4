@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var allTeams = require("./models/allTeam");
 var teamInfo = require("./models/teamInfo");
 var background = require("./models/background.js");
+var User    = require("./models/user.js");
 
 var count = 0;
 
@@ -35,77 +36,146 @@ var data1 = [{
         memberImage: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550685038&di=030d0cb771f9da6d4f2e40b5cb0d220a&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201611%2F09%2F20161109215624_PsMZE.jpeg",
         gender: "Male",
         birthday: "May 29",
-        age: "27",
+        bloodType: "AB",
         height: "178cm",
-        sign: "AB",
-        character: "君莫笑",
-        weapon: "千机伞"
+        APM: "510(average) 900(full power)",
+        character: "君莫笑 (Lord Grim)",
+        weapon: "千机伞 (Thousand Chance Umbrella)",
+        memberDescription: "Ye Xiu is well known as the Glory walking wiki, he knows everything about the game." +
+                        "Won consecutive titles as League Champions during the seasons 1-3." +
+                        "Join back to the league on season 10 and won the Champion" +
+                        "with a new formed team that only had one year of trainning."
+                        
     },
     {
-        teamMember: "苏沐橙",
+        teamMember: "苏沐橙 (Su MuCheng)",
         memberImage: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2558364376,3561364591&fm=26&gp=0.jpg",
-
-        memberDescription: "联盟首席枪炮师，因相貌出众被称作联盟第一美女。与叶修配合默契。作为中国队队员出征首届荣耀世界邀请赛" +
-            "性别：女 生日：2月18日 星座：水瓶座 血型：B型 身高：167cm 荣誉称号：首席枪炮师" +
-            "角色ID：沐雨橙风（枪炮师）、风梳烟沐 角色武器：吞日（银武，手炮）"
+        gender: "Female",
+        birthday: "Febuary 18",
+        bloodType: "B",
+        height: "167cm",
+        APM: "300+",
+        character: "沐雨橙风 (Dancing Rain) ",
+        weapon: "吞日 (Devouring Sun)",
+        memberDescription: "MuCheng was awarded three times with Ye Xiu as the best combo/team play in the league." +
+                    "Joined Ye Xiu's team and won the champion for season 10"
     }
 ];
 
 
 var data2 = [{
-        teamMember: "王杰希",
+        teamMember: "王杰希 (Wang Jie Xi)",
         memberImage: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3882446854,1579156157&fm=26&gp=0.jpg",
-
-        memberDescription: "首战屠神，以变化莫测的打法获得“魔术师”称号，凭借强大的实力由新秀挑战者转变为联盟征服者。作为中国队队员出征首届荣耀世界邀请赛。"
-    },
-    {
-        teamMember: "高英杰",
+        gender: "Male",
+        birthday: "July 6",
+        bloodType: "O",
+        height: "181cm",
+        APM: "350+",
+        character: "王不留行 (King Don't Stay)",
+        weapon: "灭绝星尘 (Destruction of Galaxy)",
+        memberDescription: "Wang Jie Xi changes his play style during battle very often," +
+                    "therefore top league player gave him the title 'The Magician'"
+    },{
+        teamMember: "高英杰 (Gao YingJie)",
         memberImage: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=381711660,2765517927&fm=26&gp=0.jpg",
-
-        memberDescription: "有天才新人的称号，深受队长王杰希的器重，是微草战队的重点培养对象"
+        gender: "Male",
+        birthday: "March 15",
+        bloodType: "A",
+        height: "173cm",
+        APM: "280+",
+        character: "木恩 (Mu En)",
+        weapon: "晨露 (Morning Rain drop)",
+        memberDescription: "The next 'Star' of WeiCao team, admire Wang Jie Xi"
     }
 ];
 
 
 var data3 = [{
-        teamMember: "喻文州",
+        teamMember: "喻文州 (Yu WenZhou)",
         memberImage: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=183542810,273673193&fm=26&gp=0.jpg",
-
-        memberDescription: "后通过战术，连胜曾经队长魏琛。战术素养极为优秀、为人稳重。作为中国队队长出征首届荣耀世界邀请赛"
+        gender: "Male",
+        birthday: "Febuary 10",
+        bloodType: "O",
+        height: "178cm",
+        APM: "200",
+        character: "索克萨尔 (Swoksaar)",
+        weapon: "灭神的诅咒 (Destruction of God Curse)",
+        memberDescription: "The slowest APM player in the leauge, however WenZhou is one of the four that" + 
+                    "have the title of 'Strategy Master'"
     },
     {
-        teamMember: "黄少天",
+        teamMember: "黄少天 (Huang ShaoTian)",
         memberImage: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3162685605,4276094735&fm=26&gp=0.jpg",
-
-        memberDescription: "荣耀职业圈中以惊人判断力和捕捉把握机会的能力闻名，是联盟中最出色的机会主义者，有“妖刀”之称。同时是个话痨。作为中国队队员出征首届荣耀世界邀请赛"
+        gender: "Male",
+        birthday: "August 10",
+        bloodType: "AB",
+        height: "176cm",
+        APM: "350+",
+        character: "夜雨声烦 (Troubling Rain)",
+        weapon: "冰雨 (Ice Rain)",
+        memberDescription: "The only guy that made the league to change their rule for chatting" +
+                "due to the reason of ShaoTian talk non-stop and annoys player and audience" +
+                "Have the title of 'Opportunists' which mean he is able to capture every single"+
+                "chances that leads the team to victory"
     }
 ]
 
 var data4 = [{
-        teamMember: "韩文清",
+        teamMember: "韩文清 (Han WenQing)",
         memberImage: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=919991836,2030719958&fm=26&gp=0.jpg",
-
-        memberDescription: "职务：队长 生日：3月31日 星座：白羊座 血型：A型 身高：181cm 性别：男 职业：拳法家 角色：大漠孤烟 银武：烈焰红拳 称号：拳皇"
+        gender: "Male",
+        birthday: "March 31",
+        bloodType: "A",
+        height: "181cm",
+        APM: "300+",
+        character: "大漠孤烟 (Ashes of Desert)",
+        weapon: "???",
+        memberDescription:"First Generation player. The play style of Han WenQing is very" +
+                "straight forward, but later into the season he decideds to change up" +
+                "due to that he is getting older and older and was not able to keep up" +
+                "with intense battle"
     },
     {
-        teamMember: "张新杰",
+        teamMember: "张新杰 (Zhang XinJie)",
         memberImage: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2851118989,3439401428&fm=26&gp=0.jpg",
-
-        memberDescription: "职务：副队长 生日：1月11日 星座：摩羯座 血型：O型 身高：177cm 性别：男 职业：牧师 角色：石不转 银武：逆光的十字星 称号：黄金一代、战术大师"
+        gender: "Male",
+        birthday: "January 11",
+        bloodType: "O",
+        height: "177cm",
+        APM: "300+",
+        character: "石不转 (Rock No Turn)",
+        weapon: "???",
+        memberDescription: "Zhang XinJie was awarded as one of Golden Age player" +
+                    "Best Priest in the game. One of the four 'Strategy Master'" 
     }
 ];
 
 var data5 = [{
-        teamMember: "周泽楷",
+        teamMember: "周泽楷 (Zhou ZeKai)",
         memberImage: "http://hbimg.b0.upaiyun.com/59a12b9780d322da1997ddc3c6f06e6b187caa8829c2f-i3ddjm_fw658",
-
-        memberDescription: "职务：队长 生日：11月24日 星座：射手座 血型：A型 身高：181cm 性别：男 职业：神枪手 角色：一枪穿云  银武：碎霜、荒火 称号：枪王"
+        gender: "Male",
+        birthday: "November 24",
+        bloodType: "A",
+        height: "181cm",
+        APM: "330+",
+        character: "一枪穿云 (Shoot Through Cloud)",
+        weapon: "左手碎霜，右手荒火 (left hand: frost breaker right hand: blazing fire)",
+        memberDescription: "According to the novel Zhou ZeKai is the best looking guy" +
+                    "in the league. Zhou ZeKai is a very strong player "+
+                    " The way he uses skill are very flashy but at the same time it is effective"
     },
     {
-        teamMember: "江波涛",
+        teamMember: "江波涛 (Jiang BoTao)",
         memberImage: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3616066879,3898751916&fm=26&gp=0.jpg",
-
-        memberDescription: "职务：副队长 生日：11月11日 星座：天蝎座 血型：B型 身高：176cm 性别：男 职业：魔剑士 角色：无浪 银武：天链 荣誉：荣耀职业联赛第八、九赛季总冠军"
+        gender: "Male",
+        birthday: "November 11",
+        bloodType: "B",
+        height: "176cm",
+        APM: "300+",
+        character: "无浪 (Silence Wave)",
+        weapon: "天链 (Sky Chain)",
+        memberDescription: "Best Runeblade in the game, not 'Strategy Master' but is still a very high" +
+                "skilled strategy player"
     }
 ];
 
@@ -114,6 +184,8 @@ async function seedDB() {
     console.log('teams are deleted');
     await teamInfo.deleteMany({});
     console.log('teaminformation are deleted');
+    await User.deleteMany({});
+    console.log("all user are deleted");
     let backgrounds = await background.create(backgroundData);
     for (const seed of data) {
         let teams = await allTeams.create(seed);

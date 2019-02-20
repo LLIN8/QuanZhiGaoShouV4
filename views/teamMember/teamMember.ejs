@@ -1,4 +1,4 @@
-<% include ../partials/header %>
+<% include ../partials/teamMemberHeader %>
 
         <link rel="stylesheet" type ="text/css" href ="/stylesheet/teamMember.css">
 
@@ -7,17 +7,18 @@
         <div id="photo-frame" class="img-thumbnail">
             <div  class="caption-full">
                 <h3><%= teamInformation.teamMember %></h3>
+                <p><%= teamInformation.memberDescription %></p>
             </div>
             <ui id="list-style">
                 <li>Gender:   <%= teamInformation.gender%></li>
                 <li>Birthday:   <%= teamInformation.birthday%></li>
-                <li>Age:   <%= teamInformation.age%></li>
+                <li>BloodType:   <%= teamInformation.bloodType%></li>
                 <li>Height:   <%= teamInformation.height%></li>
-                <li>Bloody Type:   <%= teamInformation.sign%></li>
+                <li>APM:   <%= teamInformation.APM%></li>
                 <li>Character:   <%= teamInformation.character%></li>
                 <li>Weapon:   <%= teamInformation.weapon%></li>
             </ui>
-            <img id ="photo" class="img-responsive" src="<%= teamInformation.memberImage %>"> 
+            <img id ="photo" class="img-responsive" src="<%= teamInformation.memberImage %>">
         </div>
         
     </div>

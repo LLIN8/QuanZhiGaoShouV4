@@ -7,6 +7,7 @@ var express                 = require("express"),
     Allteam                 = require("./models/allTeam"),
     seedDB                  = require("./seed"),
     User                    = require("./models/user"),
+    teamInfo                = require("./models/teamInfo.js"),
     passportLocalMongoose   = require("passport-local-mongoose");
     
 //create a dummy DB
@@ -84,6 +85,64 @@ app.post("/addTeam", function(req, res){
             res.redirect("/team");
         }
     });
+});
+
+//addTeamMember routes
+app.get("/team/:id/teamMember/addTeamMember", function(req, res) {
+    Allteam.findById(req.params.id, function(err, team){
+        if(err)
+        {
+            res.redirect("teamMember/teamMember");
+        } else{
+            res.render("teamMember/addTeamMember", {team:team});
+        }
+    });
+});
+//CREATE - add new campground to DB
+app.post("/team/:id/teamMember", function(req, res){
+    // get data from form and add to allTeam
+    var name = req.body.memberName;
+    var image = req.body.memberImage;
+    var gender = req.body.gender;
+    var birthday = req.body.birthday;
+    var bloodtype = req.body.bloodtype;
+    var height = req.body.height;
+    var APM = req.body.APM;
+    var character = req.body.character;
+    var weapon = req.body.weapon;
+    var description = req.body.descriptions;
+    var newMember = {
+                teamMember: name,
+                memberImage: image,
+                gender: gender,
+                birthday: birthday,
+                bloodtype:bloodtype,
+                height:height,
+                APM:APM,
+                character: character,
+                weapon: weapon,
+                description: description
+                
+    };
+    // Create a new team member and save to DB
+
+    Allteam.findById(req.params.id, function(err, currentTeam){
+        if(err){
+            console.log(err);
+            res.redirect("teamMember/teamMember");
+        }else{
+            teamInfo.create(newMember, function(err, newCreated){
+                if(err){
+                    console.log(err);
+                }else{
+                    currentTeam.teamInformation.push(newCreated);
+                    currentTeam.save();
+                    res.redirect("/team/" + currentTeam._id);
+                }
+            });
+        }
+    });
+
 });
 
 
